@@ -1,0 +1,17 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: mohsin.locality::lang.locality.name
+        searchable: true
+
+    code:
+        label: mohsin.locality::lang.locality.code
+        searchable: true
+
+    is_enabled:
+        label: mohsin.locality::lang.locality.enabled_label
+        type: switch
+        searchable: false

@@ -1,0 +1,21 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: mohsin.locality::lang.locality.name
+        span: auto
+        commentAbove: mohsin.locality::lang.locality.name_comment
+    code:
+        label: mohsin.locality::lang.locality.code
+        span: auto
+        commentAbove: mohsin.locality::lang.locality.code_comment
+        preset:
+            field: name
+            type: slug
+    is_enabled:
+        label: mohsin.locality::lang.locality.enabled_label
+        type: checkbox
+        default: true
+        span: left

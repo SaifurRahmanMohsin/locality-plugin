@@ -1,0 +1,8 @@
+{
+    "name": "mohsin/locality-plugin",
+    "type": "october-plugin",
+    "description": "Extension plugin to RainLab Location that introduces localities.",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}

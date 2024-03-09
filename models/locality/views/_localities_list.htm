@@ -1,0 +1,53 @@
+<?php if (count($localities)): ?>
+    <div class="list-preview list-flush">
+        <div class="control-list">
+            <table class="table data" data-control="rowlink">
+                <thead>
+                    <tr>
+                        <th><span><?= e(trans('backend::lang.access_log.id')) ?></span></th>
+                        <th><span><?= e(trans('mohsin.locality::lang.locality.name')) ?></span></th>
+                        <th><span><?= e(trans('mohsin.locality::lang.locality.enabled_label')) ?></span></th>
+                        <th style="width: 5%"><span></span></th>
+                        <th style="width: 5%"><span></span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($localities as $locality): ?>
+                        <tr>
+                            <td>
+                                <?= e($locality->id) ?>
+                            </td>
+                            <td>
+                                <?= e($locality->name) ?>
+                            </td>
+                            <td>
+                                <?php if($locality->is_enabled): ?>
+                                    <?= trans('backend::lang.list.column_switch_true') ?>
+                                <?php else: ?>
+                                    <?= trans('backend::lang.list.column_switch_false') ?>
+                                <?php endif ?>
+                            </td>
+                            <td class="nolink text-right">
+                                <input
+                                    type="checkbox"
+                                    data-request="onToggleLocalityEnabled"
+                                    data-request-data="locality_id: '<?= $locality->id ?>', enabled: '<?= $locality->is_enabled ?>'"
+                                    <?= $locality->is_enabled ? 'checked="checked"' : '' ?>>
+                            </td>
+                            <td class="nolink text-right">
+                                <a
+                                    href="javascript:;"
+                                    data-request="onDeleteLocality"
+                                    data-request-data="locality_id: '<?= $locality->id ?>'"
+                                    data-request-confirm="<?= e(trans('mohsin.locality::lang.locality.delete_confirmation')) ?>"
+                                    class="oc-icon-remove"
+                                    data-toggle="tooltip"
+                                    title="<?= e(trans('backend::lang.relation.remove')) ?>"></a>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<?php endif ?>
